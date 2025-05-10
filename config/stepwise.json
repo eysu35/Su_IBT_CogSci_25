@@ -1,0 +1,26 @@
+{
+  "model_name": "marcelbinz/Llama-3.1-Centaur-70B-adapter",
+  "bandit": "stepwise",
+  "rotate": true,
+  "temperature": 0.6,
+  "narms": 5,
+  "arm_means": [  [10, 30, 32, 65, 85], 
+                  [4, 8, 16, 32, 64],
+                  [10, 20, 40, 60, 80] ],
+  "arm_stds": [10, 10, 10, 10, 10],
+  "hints" : [
+    "no hint",
+
+    "{max2} begins with the highest expected reward.",
+    "Initially, the reward are ranked by {min2}, {min1}, {mid}, {max1}, {max2}",
+    "{min2} starts with the lowest expected rewards.",
+    "{min1} and {min2} begin as the lowest performers.",
+    "{max1} and {max2} begin as the top performers.",
+
+    "Count your pulls and anticipate major arm value changes after 10 trials.",
+    "When rewards suddenly drop, quickly test all arms to find which ones still perform well.",
+    "Identify which arms maintain consistent performance across reset events.",
+    "Develop separate strategies for before and after reset events.",
+    "Always maintain some exploration to quickly adapt after the arm values reset."],
+  "ntrials": 4
+}

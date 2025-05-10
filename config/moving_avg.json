@@ -1,0 +1,26 @@
+{
+  "model_name": "marcelbinz/Llama-3.1-Centaur-70B-adapter",
+  "bandit": "moving_avg",
+  "rotate": true,
+  "temperature": 0.6,
+  "narms": 5,
+  "arm_means": [  [10, 30, 32, 65, 85], 
+                  [4, 8, 16, 32, 64],
+                  [10, 20, 40, 60, 80] ],
+  "arm_stds": [10, 10, 10, 10, 10],
+  "hints" : [
+    "no hint",
+
+    "{max2} tends to give highest rewards.",
+    "Initially, the reward are ranked by {min2}, {min1}, {mid}, {max1}, {max2}",
+    "{min2} typically yields lower rewards.",
+    "{max1} performs better than {min2}, {min1}, and {mid}.",
+    "{mid} typically outperforms {min1} but underperforms {max1}.",
+
+    "Each reward you receive is the average of all pulls so far, not just your current pull.",
+    "Early choices heavily influence subsequent rewards due to the averaging effect.",
+    "Favor high-value arms early to establish a good baseline average.",
+    "Start with broad exploration, then commit strongly to the best arm found.",
+    "If you find a high-value arm, keep choosing it to maintain a strong average reward."],
+  "ntrials": 4
+}
